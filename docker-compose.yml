@@ -1,4 +1,4 @@
-version: "3.8"
+version: '3.8'
 
 services:
   prometheus:
@@ -7,3 +7,13 @@ services:
       - 9090:9090
     volumes:
       - ./prometheus-default.yml:/etc/prometheus/prometheus.yml
+  
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_USER}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD}
+    depends_on:
+      - prometheus
