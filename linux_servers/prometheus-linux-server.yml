@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 15s
+
+# Scraping prometheus itself for a first look into the tool
+scrape_configs:
+  - job_name: 'linux-server'
+    static_configs:
+      - targets: ['localhost:9100']
