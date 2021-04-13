@@ -6,7 +6,7 @@ services:
     ports:
       - 9090:9090
     volumes:
-      - ./prometheus-python-app.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus-python-server.yml:/etc/prometheus/prometheus.yml
     network_mode: "host"
   
   grafana:
